@@ -24,21 +24,21 @@ public String getallproducts(Model model) {
 @GetMapping("/products/new")
 public String createProductForm(Model model) {
 	
-	Products prd = new Products();
-	model.addAttribute("products", prd);
-	return "create_product";
+	Products products = new Products();
+	model.addAttribute("products", products);
+	return "createproduct";
 }
-@PostMapping("/products")
-public String savePrd(@ModelAttribute("prd") Products prd) {
-	ps.saveProducts(prd);
+@PostMapping("/productsadd")
+public String savePrd(@ModelAttribute("products") Products products) {
+	ps.saveProducts(products);
 	return "redirect:/products";
 }
 @GetMapping("/products/edit/{id}")
 public String editproductForm(@PathVariable Long id, Model model) {
 	model.addAttribute("products", ps.getProductsById(id));
-	return "edit_product";
+	return "editproduct";
 }
-@PostMapping("/students/{id}")
+@PostMapping("/products/{id}")
 public String updateProduct(@PathVariable Long id,
 		@ModelAttribute("products") Products products,
 		Model model) {
@@ -54,11 +54,11 @@ public String updateProduct(@PathVariable Long id,
 	existingproduct.setAvailable_qty(products.getAvailable_qty());
 	// save updated student object
 	ps.updateProducts(products);
-	return "redirect:/students";		
+	return "redirect:/products";		
 }
 @GetMapping("/products/{id}")
 public String deleteProduct(@PathVariable Long id) {
-    ps.getProductsById(id);
+    ps.deleteProductsById(id);
 	return "redirect:/products";
 }
 
