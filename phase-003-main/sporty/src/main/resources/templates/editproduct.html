@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Shoe mart</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/products}">HOME</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<br>
+<br>
+	<div class = "container">
+		<div class = "row">
+			<div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+				<h1 class = "text-center"> Update Product </h1>
+				<div class = "card-body">
+					<form th:action="@{/products/{id} (id=${products.id})}" th:object = "${products}" method="POST">
+						<div class ="form-group">
+							<label> Product Name </label>
+							<input
+							type = "text"
+							name = "product_name"
+							th:field = "*{product_name}"
+							class = "form-control"
+							placeholder="Enter Product Name" 
+							/>
+						</div>
+						
+						<div class ="form-group">
+							<label> Product size </label>
+							<input
+							type = "number"
+							name = "product_size"
+							th:field = "*{product_size}"
+							class = "form-control"
+							placeholder="Enter Product Size" 
+							/>
+						</div>
+						
+						<div class ="form-group">
+							<label> Product price </label>
+							<input
+							type = "number"
+							name = "product_price"
+							th:field = "*{product_price}"
+							class = "form-control"
+							placeholder="Enter Product price" 
+							/>
+						</div>
+						<div class ="form-group">
+							<label> Brand Name </label>
+							<input
+							type = "text"
+							name = "brand_name"
+							th:field = "*{brand_name}"
+							class = "form-control"
+							placeholder="Enter Brand Name" 
+							/>
+						</div>
+						<div class ="form-group">
+							<label> Category </label>
+							<input
+							type = "text"
+							name = "category"
+							th:field = "*{category}"
+							class = "form-control"
+							placeholder="Enter Type" 
+							/>
+						</div>
+						<div class ="form-group">
+							<label> QTY </label>
+							<input
+							type = "number"
+							name = "available_qty"
+							th:field = "*{available_qty}"
+							class = "form-control"
+							placeholder="Enter QUANTITY" 
+							/>
+						</div>
+						
+						
+						<div class = "box-footer">
+							<button type="submit" class = "btn btn-primary">
+								Submit
+							</button>
+						</div>
+					</form>
+				
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
