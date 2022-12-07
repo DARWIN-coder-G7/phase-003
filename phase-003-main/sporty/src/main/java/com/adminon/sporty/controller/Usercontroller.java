@@ -19,7 +19,7 @@ public class Usercontroller {
 
 	
 	@GetMapping("/users")
-	public String getallusers(UserDetails ud ,Model model,String keyword) {
+	public String getallusers(UserDetails ud ,Model model) {
 		
 		model.addAttribute("users",us.getAllUsers() );
 		

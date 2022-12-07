@@ -13,11 +13,10 @@ import javax.persistence.Table;
 @Table(name = "order_details")
 
 public class PurchaseDetails {
-     public PurchaseDetails(long orderid, UserDetails user, Products pr, Products ps, LocalDate purchasedate) {
+     public PurchaseDetails(long orderid, UserDetails user, Products ps, LocalDate purchasedate) {
 		super();
 		this.orderid = orderid;
 		this.user = user;
-		this.pr = pr;
 		this.ps = ps;
 		this.purchasedate = purchasedate;
 	}
@@ -31,9 +30,7 @@ public class PurchaseDetails {
      @ManyToOne(fetch = FetchType.LAZY)
      @JoinColumn(name = "user.uid")
      private UserDetails user;
-     @ManyToOne(fetch = FetchType.LAZY)
-     @JoinColumn(name = "pr.category")
-     private Products pr;
+     
      @ManyToOne(fetch = FetchType.LAZY)
      @JoinColumn(name = "ps.id")
      private Products ps;
@@ -52,12 +49,8 @@ public class PurchaseDetails {
 	public void setUser(UserDetails user) {
 		this.user = user;
 	}
-	public Products getPr() {
-		return pr;
-	}
-	public void setPr(Products pr) {
-		this.pr = pr;
-	}
+	
+	
 	public LocalDate getPurchasedate() {
 		return purchasedate;
 	}

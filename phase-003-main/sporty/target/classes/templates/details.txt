@@ -1,0 +1,38 @@
+select o.orderid,o.pr_date,o.user_uid,o.ps_id, p.pr_type
+from order_details as o
+left join product_details as p
+on o.ps_id=p.id
+where p.pr_type = 'Sneakers';
+select o.orderid,o.pr_date,o.user_uid,o.ps_id, p.pr_type
+from order_details as o
+left join product_details as p
+on o.ps_id=p.id;
+
+
+
+
+use sporty;
+delete from user_details where uid=10;
+select*from user_details;
+insert into user_details(address,email,mobile,name)values
+('hongkong','sai@gmail.com','9876543210','kavi'),
+('honorcity','kai@gmail.com','9866643210','ravi'),
+('america','srinidhi@gmail.com','7776543210','kalai'),
+('kenya','ravi@gmail.com','6876543888','kani'),
+('sanfransico','kani@gmail.com','7876547530','saran'),
+('heimdal','kiran@gmail.com','8976000210','kiran');
+insert into order_details(orderid,pr_date,user_uid,ps_id)values
+('55689','2022-12-17','8','5'),
+('67699','2022-12-22','9','2'),
+('89889','2022-12-08','10','3'),
+('87689','2022-12-05','11','4');
+select * from order_details where pr_date ='2022-12-08';
+select o.orderid,o.pr_date,o.user_uid,o.ps_id, p.pr_type
+from order_details as o
+left join product_details as p
+on o.ps_id=p.id
+where p.pr_type = 'Sneakers';
+select o.orderid,o.pr_date,o.user_uid,o.ps_id, p.pr_type
+from order_details as o
+left join product_details as p
+on o.ps_id=p.id;
