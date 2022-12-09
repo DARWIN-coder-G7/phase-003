@@ -63,4 +63,5 @@ public class PurchaseDetails {
 	public void setPs(Products ps) {
 		this.ps = ps;
 	}
+	
 }

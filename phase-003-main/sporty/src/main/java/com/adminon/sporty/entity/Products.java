@@ -1,9 +1,13 @@
 package com.adminon.sporty.entity;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -27,6 +31,8 @@ public class Products {
 	private long id;
 	@Column(name = "pr_name", nullable = false)
 	private String product_name;
+	/*@OneToMany(mappedBy = "ps")
+	private List<PurchaseDetails>purchasedetails= new ArrayList<>();*/
 	@Column(name = "pr_size", nullable = false)
 	private int product_size;
 	@Column(name = "pr_price", nullable = false)
@@ -80,6 +86,12 @@ public class Products {
 	public void setId(long id) {
 		this.id = id;
 	}
+	/*public List<PurchaseDetails> getPurchasedetails() {
+		return purchasedetails;
+	}
+	public void setPurchasedetails(List<PurchaseDetails> purchasedetails) {
+		this.purchasedetails = purchasedetails;
+	}*/
 	
 
 }

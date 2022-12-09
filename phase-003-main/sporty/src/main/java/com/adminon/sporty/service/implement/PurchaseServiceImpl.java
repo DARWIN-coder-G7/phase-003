@@ -2,10 +2,12 @@ package com.adminon.sporty.service.implement;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.adminon.sporty.entity.PurchaseDetails;
 import com.adminon.sporty.repository.PurchasedetailsRepo;
 import com.adminon.sporty.service.PurchaseService;
-
+@Service
 public class PurchaseServiceImpl implements PurchaseService {
 
 	public PurchaseServiceImpl(PurchasedetailsRepo pdr) {

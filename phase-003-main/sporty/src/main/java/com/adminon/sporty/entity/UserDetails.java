@@ -1,9 +1,15 @@
 package com.adminon.sporty.entity;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -25,6 +31,10 @@ public class UserDetails {
 	private long uid;
 	@Column(name = "name", nullable = false)
 	private String username;
+	/*@OneToMany(targetEntity = UserDetails.class,cascade=CascadeType.ALL)
+	@JoinColumn(name= "userid",referencedColumnName = "uid")*/
+	/*@OneToMany(mappedBy = "user")
+	private List<PurchaseDetails>purchasedetails= new ArrayList<>();*/
 	@Column(name = "email", nullable = false)
 	private String email;
 	@Column(name = "mobile", nullable = false)
