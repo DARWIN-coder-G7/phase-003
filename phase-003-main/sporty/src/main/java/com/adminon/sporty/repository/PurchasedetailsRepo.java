@@ -14,4 +14,8 @@ public interface PurchasedetailsRepo extends JpaRepository<PurchaseDetails, Long
 			+ "left join product_details as p\r\n"
 			+ "on o.ps_id=p.id;",nativeQuery=true)
 	List<PurchaseDetails>joinwith();
+	@Query(value = "select * from order_details where pr_date =:keyword",nativeQuery=true)
+	List<PurchaseDetails>findbykeyword(@Param("keyword")String keyword);
+	@Query(value = "select * from order_details where prd_cat =:keywords",nativeQuery=true)
+	List<PurchaseDetails>findbykeywords(@Param("keywords")String keywords);
 }

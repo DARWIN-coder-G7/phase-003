@@ -34,4 +34,16 @@ public class PurchaseServiceImpl implements PurchaseService {
 		return null;
 	}
 
+	@Override
+	public List<PurchaseDetails> getbykeyword(String keyword) {
+		// TODO Auto-generated method stub
+		return pdr.findbykeyword(keyword);
+	}
+
+	@Override
+	public List<PurchaseDetails> getbykeywords(String keywords) {
+		// TODO Auto-generated method stub
+		return pdr.findbykeywords(keywords);
+	}
+
 }

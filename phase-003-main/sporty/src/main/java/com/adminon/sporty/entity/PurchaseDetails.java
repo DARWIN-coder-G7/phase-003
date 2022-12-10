@@ -13,11 +13,13 @@ import javax.persistence.Table;
 @Table(name = "order_details")
 
 public class PurchaseDetails {
-     public PurchaseDetails(long orderid, UserDetails user, Products ps, LocalDate purchasedate) {
+   
+	public PurchaseDetails(long orderid, long userid, String prdcategory, long productid, LocalDate purchasedate) {
 		super();
 		this.orderid = orderid;
-		this.user = user;
-		this.ps = ps;
+		this.userid = userid;
+		this.prdcategory = prdcategory;
+		this.productid = productid;
 		this.purchasedate = purchasedate;
 	}
 	public PurchaseDetails() {
@@ -27,13 +29,12 @@ public class PurchaseDetails {
 	@Id
      @GeneratedValue
 	private long orderid;
-     @ManyToOne(fetch = FetchType.LAZY)
-     @JoinColumn(name = "user.uid")
-     private UserDetails user;
-     
-     @ManyToOne(fetch = FetchType.LAZY)
-     @JoinColumn(name = "ps.id")
-     private Products ps;
+	 @Column(name = "user_id", nullable = false)
+     private long userid;
+	 @Column(name = "prd_cat", nullable = false)
+    private String prdcategory;
+	 @Column(name = "product_id", nullable = false)
+     private long productid;
      @Column(name = "pr_date", nullable = false)
 	private LocalDate purchasedate;
      
@@ -43,12 +44,7 @@ public class PurchaseDetails {
 	public void setOrderid(long orderid) {
 		this.orderid = orderid;
 	}
-	public UserDetails getUser() {
-		return user;
-	}
-	public void setUser(UserDetails user) {
-		this.user = user;
-	}
+	
 	
 	
 	public LocalDate getPurchasedate() {
@@ -57,11 +53,23 @@ public class PurchaseDetails {
 	public void setPurchasedate(LocalDate purchasedate) {
 		this.purchasedate = purchasedate;
 	}
-	public Products getPs() {
-		return ps;
+	public long getUserid() {
+		return userid;
 	}
-	public void setPs(Products ps) {
-		this.ps = ps;
+	public void setUserid(long userid) {
+		this.userid = userid;
+	}
+	public String getPrdcategory() {
+		return prdcategory;
+	}
+	public void setPrdcategory(String prdcategory) {
+		this.prdcategory = prdcategory;
+	}
+	public long getProductid() {
+		return productid;
+	}
+	public void setProductid(long productid) {
+		this.productid = productid;
 	}
 	
 }
