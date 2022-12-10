@@ -24,6 +24,10 @@ private Loginservice ls;
 public String call() {
 	return"index";
 }
+@GetMapping("/pass")
+public String callw() {
+	return"passupdate";
+}
 @PostMapping("/home")
 public String tester(@RequestParam(defaultValue = "empty") String name,@RequestParam(defaultValue = "empty") String pin) {
 	long id = 1;
