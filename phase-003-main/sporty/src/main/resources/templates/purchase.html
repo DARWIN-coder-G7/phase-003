@@ -37,11 +37,11 @@
 			<h1> ORDER DETAILS</h1>
 		</div>
 		<form th:action = "@{/purchase/date}" method ="get">
-		<input type ="date" name = "keyword" th:value ="${keyword}" placeholder = "find by date" size ="50">
+		<input type ="date" name = "keyword" th:value ="${keyword}" placeholder = "find by date" size ="50" required>
 		<button type = "submit" class ="btn btn-info" >FILTER BY DATE</button>
 		</form>
 		<form th:action = "@{/category}" method ="get">
-		<input type ="text" name = "keywords" th:value ="${keywords}" placeholder = "find by category" size ="50">
+		<input type ="text" name = "keywords" th:value ="${keywords}" placeholder = "find by category" size ="50" required>
 		<button type = "submit" class ="btn btn-info" >FILTER BY CATEGORY</button>
 		</form>
 		<table class = "table table-striped table-bordered">
