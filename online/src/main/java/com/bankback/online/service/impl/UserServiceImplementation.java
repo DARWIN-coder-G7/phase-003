@@ -1,5 +1,7 @@
 package com.bankback.online.service.impl;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.bankback.online.entity.User;
@@ -34,5 +36,23 @@ public class UserServiceImplementation implements UserService {
 		// TODO Auto-generated method stub
 		return userepo.logincheck(username, pass);
 	}
+
+	@Override
+	public List<User> getalluser() {
+		// TODO Auto-generated method stub
+		return userepo.findAll();
+	}
+
+	@Override
+	public User blockuser(long id, boolean data) {
+		// TODO Auto-generated method stub
+		userepo.findById(id).orElseThrow(() -> 
+        new ResourceNotFoundException("UserData","id",id));
+		User existingdata = userepo.findById(id).orElseThrow();
+		existingdata.setBlock(data);
+		userepo.save(existingdata);
+		return existingdata;
+	}
+
 
 }

@@ -11,16 +11,23 @@ import javax.persistence.Table;
 @Table( name = "user")
 public class User {
 
-	public User() {
-		super();
-	}
-	public User(long userid, String username, String useremail, String userpass) {
+	public User(long userid, String username, String useremail, String userpass, boolean block) {
 		super();
 		this.userid = userid;
 		this.username = username;
 		this.useremail = useremail;
 		this.userpass = userpass;
+		this.block = block;
 	}
+	public User(long userid, boolean block) {
+		super();
+		this.userid = userid;
+		this.block = block;
+	}
+	public User() {
+		super();
+	}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "user_id", nullable = false)
@@ -31,6 +38,7 @@ public class User {
     private String useremail;
 	@Column(name = "user_pass", nullable = false)
     private  String userpass;
+	private Boolean block;
 	public long getUserid() {
 		return userid;
 	}
@@ -55,4 +63,11 @@ public class User {
 	public void setUserpass(String userpass) {
 		this.userpass = userpass;
 	}
+	public Boolean getBlock() {
+		return block;
+	}
+	public void setBlock(Boolean block) {
+		this.block = block;
+	}
+	
 }

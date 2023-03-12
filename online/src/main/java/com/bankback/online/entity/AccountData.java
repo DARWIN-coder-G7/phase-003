@@ -8,6 +8,14 @@ import javax.persistence.Id;
 @Entity
 
 public class AccountData {
+public AccountData(String accholder, long mobilenum, String password, long userid) {
+		super();
+		this.accholder = accholder;
+		this.mobilenum = mobilenum;
+		this.password = password;
+		this.userid = userid;
+	}
+
 public AccountData(Long accid, boolean moneytransfer, boolean deposit, boolean withdrawal, boolean chequebook) {
 		super();
 		this.accid = accid;
@@ -16,10 +24,7 @@ public AccountData(Long accid, boolean moneytransfer, boolean deposit, boolean w
 		this.withdrawal = withdrawal;
 		this.chequebook = chequebook;
 	}
-public AccountData(String accholder) {
-		super();
-		this.accholder = accholder;
-	}
+
 public AccountData(Long accid, long accno, String accholder, boolean moneytransfer, boolean deposit,
 			boolean withdrawal, boolean chequebook, double balance, long userid) {
 		super();
@@ -40,9 +45,11 @@ public AccountData() {
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
 private Long accid;
-@GeneratedValue(strategy = GenerationType.SEQUENCE)
-private long accno =1;
+@GeneratedValue(strategy = GenerationType.AUTO)
+private long accno ;
 private String accholder;
+private long mobilenum;
+private String password;
 private boolean moneytransfer;
 private boolean deposit;
 private boolean withdrawal;
@@ -102,6 +109,22 @@ public long getUserid() {
 }
 public void setUserid(long userid) {
 	this.userid = userid;
+}
+
+public long getMobilenum() {
+	return mobilenum;
+}
+
+public void setMobilenum(long mobilenum) {
+	this.mobilenum = mobilenum;
+}
+
+public String getPassword() {
+	return password;
+}
+
+public void setPassword(String password) {
+	this.password = password;
 }
 
 }
